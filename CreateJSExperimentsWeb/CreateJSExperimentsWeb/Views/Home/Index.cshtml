@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>CreateJS Experiments</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    @Scripts.Render("~/bundles/jquery")
+
+    <script type="text/javascript" src="http://code.createjs.com/easeljs-0.5.0.min.js"></script>
+    <script type="text/javascript" src="http://code.createjs.com/tweenjs-0.3.0.min.js"></script>
+    <script type="text/javascript" src="http://code.createjs.com/soundjs-0.3.0.min.js"></script>
+    <script type="text/javascript" src="http://code.createjs.com/preloadjs-0.2.0.min.js"></script>
+    
+    @Scripts.Render("~/bundles/experiment1")
+
+    <style type="text/css">
+        #screen
+        {
+            background-color: #0094ff;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="screen" width="640" height="960" tabindex="1"></canvas>
+
+</body>
+</html>
