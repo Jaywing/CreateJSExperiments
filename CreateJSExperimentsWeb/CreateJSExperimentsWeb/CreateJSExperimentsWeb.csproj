@@ -130,9 +130,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\assets\odin.png" />
     <Content Include="Global.asax" />
+    <Content Include="Content\assets\pirate_m2.png" />
+    <Content Include="Scripts\Experiment2\horseman.js" />
+    <Content Include="Scripts\Experiment2\keyboard.js" />
+    <Content Include="Scripts\Experiment2\main.js" />
+    <Content Include="Scripts\Experiment2\player.js" />
+    <Content Include="Scripts\Experiment1\keyboard.js" />
     <Content Include="Scripts\Experiment1\main.js" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
+    <Content Include="Scripts\Experiment1\player.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Web.config" />

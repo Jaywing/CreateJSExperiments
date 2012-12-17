@@ -1,7 +1,9 @@
 ﻿(function (window) {
-    function Player(stage) {
-        this.stage = stage;
+    function Horseman(main) {
+        this.main = main;
 
+        this.width = 80;
+        this.height = 80;
         this.sprite = new createjs.BitmapAnimation(
             new createjs.SpriteSheet({
                 "animations": {
@@ -11,29 +13,36 @@
                     "east": [8, 11, "east", 4],
                     "north": [12, 15, "north", 4]
                 },
-                "images": ["Content/assets/pirate_m2.png"],
+                "images": ["Content/assets/odin.png"],
                 "frames": {
-                    "width": 32,
-                    "height": 48,
+                    "width": this.width,
+                    "height": this.height,
                     "count": 16
                 }
             }));
-        this.sprite.x = 0;
-        this.sprite.y = 0;
+        this.sprite.x = this.main.stage.canvas.width - this.width;
+        this.sprite.y = this.main.stage.canvas.height - this.height;
         this.sprite.gotoAndPlay("idle");
 
-        this.stage.addChild(this.sprite);
+        this.main.stage.addChild(this.sprite);
 
         this.direction = new createjs.Point(0, 0);
 
         return this;
     };
 
-    Player.prototype = {
+    Horseman.prototype = {
+        width: null,
+        height: null,
         update: function () {
+            var dx = this.main.player.sprite.x - this.sprite.x;
+            var dy = this.main.player.sprite.y - this.sprite.y;
+            
             var movement = new createjs.Point(0, 0);
-            movement.x = (window.Keyboard.isPressed(39)) ? 1 : ((window.Keyboard.isPressed(37)) ? -1 : 0);
-            movement.y = (window.Keyboard.isPressed(38)) ? -1 : ((window.Keyboard.isPressed(40)) ? 1 : 0);
+            if (Math.abs(dx) > Math.abs(dy))
+                movement.x = dx > 0 ? 1 : -1;
+            else if (Math.abs(dx) < Math.abs(dy))
+                movement.y = dy > 0 ? 1 : -1;
 
             if (this.direction.x != movement.x || this.direction.y != movement.y) {
                 if (movement.x === 0 && movement.y === 0)
@@ -49,10 +58,12 @@
                 this.direction = movement;
             }
 
-            this.sprite.x += movement.x;
-            this.sprite.y += movement.y;
+            if ((this.sprite.x + movement.x) > 0 && (this.sprite.x + movement.x + this.width) < this.main.stage.canvas.width)
+                this.sprite.x += movement.x;
+            if ((this.sprite.y + movement.y) > 0 && (this.sprite.y + movement.y + this.height) < this.main.stage.canvas.height)
+                this.sprite.y += movement.y;
         }
     };
 
-    window.Player = Player;
+    window.Horseman = Horseman;
 }(window));

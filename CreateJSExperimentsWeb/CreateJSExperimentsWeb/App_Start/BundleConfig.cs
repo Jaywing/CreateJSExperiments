@@ -15,6 +15,9 @@ namespace CreateJSExperimentsWeb
 
             bundles.Add(new ScriptBundle("~/bundles/experiment1").IncludeDirectory(
                         "~/Scripts/Experiment1/", "*.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/experiment2").IncludeDirectory(
+                        "~/Scripts/Experiment2/", "*.js"));
         }
     }
 }

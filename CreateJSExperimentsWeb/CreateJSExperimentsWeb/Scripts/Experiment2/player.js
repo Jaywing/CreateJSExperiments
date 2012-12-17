@@ -1,7 +1,9 @@
 ﻿(function (window) {
-    function Player(stage) {
-        this.stage = stage;
+    function Player(main) {
+        this.main = main;
 
+        this.width = 32;
+        this.height = 48;
         this.sprite = new createjs.BitmapAnimation(
             new createjs.SpriteSheet({
                 "animations": {
@@ -13,8 +15,8 @@
                 },
                 "images": ["Content/assets/pirate_m2.png"],
                 "frames": {
-                    "width": 32,
-                    "height": 48,
+                    "width": this.width,
+                    "height": this.height,
                     "count": 16
                 }
             }));
@@ -22,7 +24,7 @@
         this.sprite.y = 0;
         this.sprite.gotoAndPlay("idle");
 
-        this.stage.addChild(this.sprite);
+        this.main.stage.addChild(this.sprite);
 
         this.direction = new createjs.Point(0, 0);
 
@@ -30,6 +32,9 @@
     };
 
     Player.prototype = {
+        sprite: null,
+        width: null,
+        height: null,
         update: function () {
             var movement = new createjs.Point(0, 0);
             movement.x = (window.Keyboard.isPressed(39)) ? 1 : ((window.Keyboard.isPressed(37)) ? -1 : 0);
@@ -49,8 +54,10 @@
                 this.direction = movement;
             }
 
-            this.sprite.x += movement.x;
-            this.sprite.y += movement.y;
+            if ((this.sprite.x + movement.x) > 0 && (this.sprite.x + movement.x + this.width) < this.main.stage.canvas.width)
+                this.sprite.x += movement.x;
+            if ((this.sprite.y + movement.y) > 0 && (this.sprite.y + movement.y + this.height) < this.main.stage.canvas.height)
+                this.sprite.y += movement.y;
         }
     };
 
