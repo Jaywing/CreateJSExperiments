@@ -13,7 +13,7 @@
                     "east": [8, 11, "east", 4],
                     "north": [12, 15, "north", 4]
                 },
-                "images": ["Content/assets/odin.png"],
+                "images": ["/Content/assets/odin.png"],
                 "frames": {
                     "width": this.width,
                     "height": this.height,

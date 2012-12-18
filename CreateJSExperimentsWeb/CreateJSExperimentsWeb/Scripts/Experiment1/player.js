@@ -11,7 +11,7 @@
                     "east": [8, 11, "east", 4],
                     "north": [12, 15, "north", 4]
                 },
-                "images": ["Content/assets/pirate_m2.png"],
+                "images": ["/Content/assets/pirate_m2.png"],
                 "frames": {
                     "width": 32,
                     "height": 48,

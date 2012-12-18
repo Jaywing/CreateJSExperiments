@@ -16,5 +16,28 @@ namespace CreateJSExperimentsWeb.Controllers
             return View();
         }
 
+        //
+        // GET: /Home/Experiment1/
+
+        public ActionResult Experiment1()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Home/Experiment1/
+
+        public ActionResult Experiment2()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Home/Experiment1/
+
+        public ActionResult Experiment3()
+        {
+            return View();
+        }
     }
 }
